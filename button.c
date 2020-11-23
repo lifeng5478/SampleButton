@@ -136,7 +136,7 @@ void BUTTON_SCAN(Button_t *btn)
 		else if(btn->inlock==0)
 		{
 			btn->outlock=0;
-			btn->Timer_Count=0;
+			btn->Timer_Count++;
 			if(btn->Timer_Count>BOTHWAY_TIME)
 			{
 				btn->Timer_Count=0;
