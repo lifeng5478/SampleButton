@@ -95,9 +95,18 @@ void BUTTON_SCAN(Button_t *btn)
     {
         btn->Btn_Lock = 0;
         btn->Timer_Count=0;
-        if(btn->short_flag == 1)
+        btn->short_lock = 0;
+
+        if(btn->Button_Click_Time>0)
         {
-            btn->Button_State = BUTTON_DOWM;
+            btn->Button_Double_Timer_Counter++;
+            if(btn->Button_Double_Timer_Counter>BTN_DOUBOU_INTERVAL)
+            {
+                btn->Button_State = BUTTON_DOWM;
+                btn->Timer_Count = 0;
+            	btn->Button_Double_Timer_Counter = 0;
+            	btn->Button_Click_Time = 0;
+            }
         }
     }
     else if(btn->Btn_Lock==0)
@@ -105,13 +114,26 @@ void BUTTON_SCAN(Button_t *btn)
         btn->Timer_Count++;
         if(btn->Timer_Count>BTN_SHORT_TIME)
         {
-            btn->short_flag =1;
+//            btn->short_flag =1;
+        	if(btn->short_lock==0)
+        	{
+            btn->short_lock = 1;
+            btn->Button_Click_Time++;
+        	}
+            if(btn->Button_Click_Time>1)
+            {
+            	btn->Button_Click_Time = 0;
+            	btn->Timer_Count = 0;
+                btn->Btn_Lock = 1;
+            	btn->Button_State = BUTTON_DOUBLE;
+            }
         }
         if(btn->Timer_Count>BTN_LONG_TIME)
         {
             btn->Timer_Count=0;
-            btn->short_flag = 0;
+            btn->short_lock = 0;
             btn->Btn_Lock = 1;
+            btn->Button_Click_Time =0;
             btn->Button_State = BUTTON_LONG;
         }
     }
@@ -128,7 +150,7 @@ void BUTTON_SCAN(Button_t *btn)
 					{
 						btn->Timer_Count=0;
 						btn->outlock=1;
-						btn->Button_State=BUTTON_BOTH_IN;
+						btn->Button_State=BUTTON_BOTH_OUT;
 					}
 			}
 		}
@@ -141,7 +163,7 @@ void BUTTON_SCAN(Button_t *btn)
 			{
 				btn->Timer_Count=0;
 				btn->inlock=1;
-				btn->Button_State=BUTTON_BOTH_OUT;
+				btn->Button_State=BUTTON_BOTH_IN;
 			}
 		}
     }
