@@ -1,5 +1,5 @@
 /************************************************************
-  * @brief   °´¼üÇý¶¯
+  * @brief   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @param   NULL
   * @return  NULL
   * @author  lifeng
@@ -25,11 +25,11 @@ static void Add_Button(Button_t* btn)
 }
 
 /************************************************************
-  * @brief   °´¼ü´´½¨
-	* @param   name : °´¼üÃû³Æ
-	* @param   btn : °´¼ü½á¹¹Ìå
-  * @param   read_btn_level : °´¼üµçÆ½¶ÁÈ¡º¯Êý£¬ÐèÒªÓÃ»§×Ô¼ºÊµÏÖ·µ»Øuint8_tÀàÐÍµÄµçÆ½
-  * @param   btn_trigger_level : °´¼ü´¥·¢µçÆ½	¸ßµçÆ½1£¬µÍµçÆ½0
+  * @brief   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param   name : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param   btn : ï¿½ï¿½ï¿½ï¿½ï¿½á¹¹ï¿½ï¿½
+  * @param   read_btn_level : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Ã»ï¿½ï¿½Ô¼ï¿½Êµï¿½Ö·ï¿½ï¿½ï¿½uint8_tï¿½ï¿½ï¿½ÍµÄµï¿½Æ½
+  * @param   btn_trigger_level : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½	ï¿½ßµï¿½Æ½1ï¿½ï¿½ï¿½Íµï¿½Æ½0
   * @return  NULL
   * @author  lifeng
   * @github  https://github.com/lifeng5478
@@ -43,21 +43,21 @@ void Create_Button(const char *name,Button_t *btn,uint8_t (*read_button_level)(v
   {
     PRINT_ERR("struct button is null!");
   }
-    StrnCopy(btn->Name, name, BTN_NAME_MAX); /* ´´½¨°´¼üÃû³Æ */
-  btn->Button_State = NONE_TRIGGER;           //°´¼ü×´Ì¬
-  btn->Button_Trigger_Event = NONE_TRIGGER;   //°´¼ü´¥·¢ÊÂ¼þ
-  btn->Read_Button_Level = read_button_level;    //°´¼ü¶ÁµçÆ½º¯Êý
-  btn->Button_Trigger_Level = triggle;  //°´¼ü´¥·¢µçÆ½
+    StrnCopy(btn->Name, name, BTN_NAME_MAX); /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+  btn->Button_State = NONE_TRIGGER;           //ï¿½ï¿½ï¿½ï¿½×´Ì¬
+  btn->Button_Trigger_Event = NONE_TRIGGER;   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
+  btn->Read_Button_Level = read_button_level;    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½
+  btn->Button_Trigger_Level = triggle;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½
   btn->Debounce_Time = 0;
-  Add_Button(btn);          //´´½¨µÄÊ±ºòÌí¼Óµ½µ¥Á´±íÖÐ
+  Add_Button(btn);          //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 
 /************************************************************
-  * @brief   °´¼ü¸½¼Ó¹¦ÄÜ
-	* @param   btn : °´¼ü½á¹¹Ìå
-  * @param   bothway : Ë«Ïò°´¼ü¹¦ÄÜÊ¹ÄÜ
-  * @param   combination : ÁªºÏ°´¼üÊ¹ÄÜ
+  * @brief   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¹ï¿½ï¿½ï¿½
+	* @param   btn : ï¿½ï¿½ï¿½ï¿½ï¿½á¹¹ï¿½ï¿½
+  * @param   bothway : Ë«ï¿½ò°´¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
+  * @param   combination : ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
   * @return  NULL
   * @author  lifeng
   * @github  https://github.com/lifeng5478
@@ -77,8 +77,8 @@ void Button_Special_Func(Button_t *btn,BOOL_BTN bothway,BOOL_BTN combination)
 
 
 /************************************************************
-  * @brief   °´¼üÉ¨Ãè
-	* @param   btn : °´¼ü½á¹¹Ìå
+  * @brief   ï¿½ï¿½ï¿½ï¿½É¨ï¿½ï¿½
+	* @param   btn : ï¿½ï¿½ï¿½ï¿½ï¿½á¹¹ï¿½ï¿½
   * @return  NULL
   * @author  lifeng
   * @github  https://github.com/lifeng5478
@@ -88,7 +88,7 @@ void Button_Special_Func(Button_t *btn,BOOL_BTN bothway,BOOL_BTN combination)
   ***********************************************************/
 void BUTTON_SCAN(Button_t *btn)
 {
-    uint8_t current_level = (uint8_t)btn->Read_Button_Level();//»ñÈ¡µ±Ç°°´¼üµçÆ½
+    uint8_t current_level = (uint8_t)btn->Read_Button_Level();//ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½
     if(btn->bothway_flag != TRUE&&btn->combination !=TRUE)
     {
     if(current_level == btn->Button_Trigger_Level)
@@ -140,7 +140,7 @@ void BUTTON_SCAN(Button_t *btn)
     }
     if(btn->bothway_flag==TRUE)
     {
-        if(current_level==btn->Button_Trigger_Level)//Ë«Ïò¿¹¶¶³ÌÐò
+        if(current_level==btn->Button_Trigger_Level)//Ë«ï¿½ò¿¹¶ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
 			btn->inlock = 0;
 			if (btn->outlock==0)
@@ -171,32 +171,32 @@ void BUTTON_SCAN(Button_t *btn)
 }
 
 /************************************************************
-  * @brief   ËùÓÐ°´¼üÁ´±íÊ½É¨Ãè
+  * @brief   ï¿½ï¿½ï¿½Ð°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½É¨ï¿½ï¿½
   * @return  NULL
   * @author  lifeng
   * @github  https://github.com/lifeng5478
   * @date    2020-11-23
   * @version v1.0
-  * @note    ÐèÒªÔÚ1ms¶¨Ê±Æ÷ÖÐÖÜÆÚÐÔÉ¨Ãè£¨ÓÃ»§ÖÃÈë£©
+  * @note    ï¿½ï¿½Òªï¿½ï¿½1msï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¨ï¿½è£¨ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ë£©
   ***********************************************************/
 void Button_Scan_Process(void)
 {
-  struct button* pass_btn;
-  for(pass_btn = Head_Button; pass_btn != NULL; pass_btn = pass_btn->Next)
+  struct button* btn;
+  for(btn = Head_Button; btn != NULL; btn = btn->Next)
   {
-      BUTTON_SCAN(pass_btn);
+      BUTTON_SCAN(btn);
   }
 }
 
 
 /************************************************************
-  * @brief   °´¼ü·þÎñ³ÌÐò
+  * @brief   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
   * @return  NULL
   * @author  lifeng
   * @github  https://github.com/lifeng5478
   * @date    2020-11-23
   * @version v1.0
-  * @note    ÐèÒªÔÚÖ÷³ÌÐòµ÷ÓÃ
+  * @note    ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
   ***********************************************************/
 void Button_Process_Service(void)
 {
@@ -211,29 +211,29 @@ void Button_Process_Service(void)
 
 
 /************************************************************
-  * @brief   °´¼ü´¥·¢ÊÂ¼þÓ³Éä
+  * @brief   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½Ó³ï¿½ï¿½
   * @return  NULL
   * @author  lifeng
   * @github  https://github.com/lifeng5478
   * @date    2020-11-23
   * @version v1.0
-  * @note    ³õÊ¼»¯ºóµ÷ÓÃ
+  * @note    ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
   ***********************************************************/
 void Button_Attach(Button_t *btn,Button_Event btn_event,Button_CallBack btn_callback)
 {
   if( btn == NULL)
   {
     PRINT_ERR("struct button is null!");
-    //ASSERT(ASSERT_ERR);       //¶ÏÑÔ
+    //ASSERT(ASSERT_ERR);       //ï¿½ï¿½ï¿½ï¿½
   }
   
   if(BUTTON_ALL_RIGGER == btn_event)
   {
     for(uint8_t i = 0 ; i < number_of_event-1 ; i++)
-      btn->CallBack_Function[i] = btn_callback; //°´¼üÊÂ¼þ´¥·¢µÄ»Øµ÷º¯Êý£¬ÓÃÓÚ´¦Àí°´¼üÊÂ¼þ
+      btn->CallBack_Function[i] = btn_callback; //ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
   }
   else
   {
-    btn->CallBack_Function[btn_event] = btn_callback; //°´¼üÊÂ¼þ´¥·¢µÄ»Øµ÷º¯Êý£¬ÓÃÓÚ´¦Àí°´¼üÊÂ¼þ
+    btn->CallBack_Function[btn_event] = btn_callback; //ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
   }
 }
